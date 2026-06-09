@@ -1,0 +1,13 @@
+{
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/SmartDashboard/Field": "Field2d",
+      "/SmartDashboard/MegaTag Chooser": "String Chooser",
+      "/SmartDashboard/PathPlanner": "Alerts"
+    }
+  },
+  "NetworkTables Info": {
+    "visible": true
+  }
+}
