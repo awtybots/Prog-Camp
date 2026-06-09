@@ -8,6 +8,8 @@ import frc.robot.Constants.IntakeConstants;
 
 import frc.robot.Constants.HopperConstants;
 
+import frc.robot.Constants.ShooterConstants;
+
 // import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.FeedbackSensor;
 
@@ -114,4 +116,57 @@ public final class Configs
                 }
 
         };
+
+
+        public static final class ShooterSubsystem {
+                
+            public static final SparkFlexConfig ShooterMotorLeftConfig = new SparkFlexConfig();
+            public static final SparkFlexConfig ShooterMotorRightConfig = new SparkFlexConfig();
+            // public static final SparkFlexConfig ShooterRightMotorConfig = new SparkFlexConfig();
+
+                static {
+
+                        ShooterMotorLeftConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12);
+                        ShooterMotorRightConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12).inverted(true);
+
+
+
+                        ShooterMotorLeftConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+                            // Set PID values for position control. We don't need to pass a closed
+                            // loop slot, as it will default to slot 0.
+                            .p(ShooterConstants.p)
+                            .i(ShooterConstants.i)
+                            .d(ShooterConstants.d)
+                            .outputRange(-1, 1)
+                            .feedForward
+                            .kS(ShooterConstants.s)
+                            .kV(ShooterConstants.v)
+                            .kA(ShooterConstants.a)
+                            ;
+
+                        ShooterMotorLeftConfig.closedLoop
+                        .maxMotion.maxAcceleration(1000000);
+
+
+                        ShooterMotorRightConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+                            // Set PID values for position control. We don't need to pass a closed
+                            // loop slot, as it will default to slot 0.
+                            .p(IntakeConstants.p)
+                            .i(IntakeConstants.i)
+                            .d(IntakeConstants.d)
+                            .outputRange(-1, 1)
+                            .feedForward
+                            .kS(IntakeConstants.s)
+                            .kV(IntakeConstants.v)
+                            .kA(IntakeConstants.a)
+                            ;
+
+                        ShooterMotorRightConfig.closedLoop
+                        .maxMotion.maxAcceleration(1000000);
+
+                }
+
+        };
+
+
 }
