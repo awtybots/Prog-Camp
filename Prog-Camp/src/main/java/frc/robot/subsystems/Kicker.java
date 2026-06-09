@@ -39,14 +39,6 @@ public class Kicker extends SubsystemBase {
         // THE RIGHT KICKER MOTOR IS FOLLOWING THE LEFT ONE!!!
     }
 
-    public void runOuttake() {
-        KickerLeftController.setSetpoint(KickerConstants.KICKER_RPM,
-                ControlType.kMAXMotionVelocityControl);
-        KickerRightController.setSetpoint(KickerConstants.KICKER_RPM,
-                ControlType.kMAXMotionVelocityControl);
-
-    }
-
     public void runKicker() {
         KickerLeftController.setSetpoint(KickerConstants.KICKER_RPM,
                 ControlType.kMAXMotionVelocityControl);
@@ -54,6 +46,7 @@ public class Kicker extends SubsystemBase {
                 ControlType.kMAXMotionVelocityControl);
 
     }
+
 
     public void stopKicker() {
         desiredPercent = 0.0;
@@ -63,11 +56,6 @@ public class Kicker extends SubsystemBase {
 
     public Command runKickerCommand() {
         return new RunCommand(() -> runKicker(), this)
-                .finallyDo(interrupted -> stopKicker());
-    }
-
-    public Command runOuttakeCommand() {
-        return new RunCommand(() -> runOuttake(), this)
                 .finallyDo(interrupted -> stopKicker());
     }
 

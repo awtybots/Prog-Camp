@@ -40,7 +40,7 @@ public class Shooter extends SubsystemBase {
         // THE RIGHT SHOOTER MOTOR IS FOLLOWING THE LEFT ONE!!!
     }
 
-    public void runOuttake() {
+    public void runShooter() {
         ShooterLeftController.setSetpoint(ShooterConstants.SHOOTER_SPEED,
                 ControlType.kMAXMotionVelocityControl);
         ShooterRightController.setSetpoint(ShooterConstants.SHOOTER_SPEED,
@@ -48,48 +48,35 @@ public class Shooter extends SubsystemBase {
 
     }
 
-    public void runIntake() {
-        ShooterLeftController.setSetpoint(ShooterConstants.SHOOTER_SPEED,
-                ControlType.kMAXMotionVelocityControl);
-        ShooterRightController.setSetpoint(ShooterConstants.SHOOTER_SPEED,
-                ControlType.kMAXMotionVelocityControl);
-
-    }
-
-    public void stopIntake() {
+    public void stopShooter() {
         desiredPercent = 0.0;
         ShooterLeftMotor.set(0);
         ShooterRightMotor.set(0);
     }
 
-    public Command runIntakeCommand() {
-        return new RunCommand(() -> runIntake(), this)
-                .finallyDo(interrupted -> stopIntake());
+    public Command runShooterCommand() {
+        return new RunCommand(() -> runShooter(), this)
+                .finallyDo(interrupted -> stopShooter());
     }
 
-    public Command runOuttakeCommand() {
-        return new RunCommand(() -> runOuttake(), this)
-                .finallyDo(interrupted -> stopIntake());
-    }
-
-    public Command stopIntakeCommand() {
-        return new RunCommand(() -> stopIntake(), this);
+    public Command stopShooterCommand() {
+        return new RunCommand(() -> stopShooter(), this);
     }
 
     public Command runDefaultCommand()
     {
-        return stopIntakeCommand();
+        return stopShooterCommand();
     }
 
     @Override
     public void periodic() {
         // AdvantageKit Logging
-        // Commanded intake motor percent output.
+        // Commanded shooter motor percent output.
         double RightRPM = ShooterRightMotor.getEncoder().getVelocity();
         double LeftRPM = ShooterLeftMotor.getEncoder().getVelocity();
 
         Logger.recordOutput("Shooter/DesiredPercent", desiredPercent);
-        // Applied voltage to intake motor.
+        // Applied voltage to shooter motor.
         Logger.recordOutput("Shooter/AppliedVolts", ShooterLeftMotor.getAppliedOutput() * ShooterLeftMotor.getBusVoltage());
         Logger.recordOutput("ShooterRightRPM", RightRPM);
         Logger.recordOutput("ShooterLeftRPM", LeftRPM);

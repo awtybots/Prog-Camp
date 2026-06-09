@@ -40,14 +40,6 @@ public class Hopper extends SubsystemBase {
         // THE RIGHT Hopper MOTOR IS FOLLOWING THE LEFT ONE!!!
     }
 
-    public void runOuttake() {
-        HopperLeftController.setSetpoint(HopperConstants.HOPPER_RPM,
-                ControlType.kMAXMotionVelocityControl);
-        HopperRightController.setSetpoint(HopperConstants.HOPPER_RPM,
-                ControlType.kMAXMotionVelocityControl);
-
-    }
-
     public void runHopper() {
         HopperLeftController.setSetpoint(HopperConstants.HOPPER_RPM,
                 ControlType.kMAXMotionVelocityControl);
@@ -55,6 +47,8 @@ public class Hopper extends SubsystemBase {
                 ControlType.kMAXMotionVelocityControl);
 
     }
+
+
 
     public void stopHopper() {
         desiredPercent = 0.0;
@@ -68,7 +62,7 @@ public class Hopper extends SubsystemBase {
     }
 
     public Command RunHopperReverse() {
-        return new RunCommand(() -> runOuttake(), this)
+        return new RunCommand(() -> runHopper(), this)
                 .finallyDo(interrupted -> stopHopper());
     }
 
