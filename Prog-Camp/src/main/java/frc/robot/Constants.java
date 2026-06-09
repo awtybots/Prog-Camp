@@ -177,8 +177,8 @@ public final class Constants {
   // for the Kicker :P
 
   public static class KickerConstants {
-    public static final int KICKER_LEFT_ID = 18; // unknown
-    public static final int KICKER_RIGHT_ID = 19; // unknown
+    public static final int KICKER_LEFT_ID = 13; // unknown
+    public static final int KICKER_RIGHT_ID = 14; // unknown
 
     // PID Constants
     public static final double p = 0.006155;
