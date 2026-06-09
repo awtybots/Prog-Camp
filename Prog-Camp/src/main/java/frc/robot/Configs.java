@@ -10,6 +10,8 @@ import frc.robot.Constants.HopperConstants;
 
 import frc.robot.Constants.ShooterConstants;
 
+import frc.robot.Constants.KickerConstants;
+
 // import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.FeedbackSensor;
 
@@ -117,6 +119,58 @@ public final class Configs
 
         };
 
+        public static final class KickerSubsystem {
+                
+            public static final SparkFlexConfig KickerMotorLeftConfig = new SparkFlexConfig();
+            public static final SparkFlexConfig KickerMotorRightConfig = new SparkFlexConfig();
+            // public static final SparkFlexConfig IntakeRightMotorConfig = new SparkFlexConfig();
+
+                static {
+
+                        KickerMotorLeftConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12);
+                        KickerMotorRightConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12).follow(KickerConstants.KICKER_LEFT_ID, true);
+
+
+
+                        KickerMotorLeftConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+                            // Set PID values for position control. We don't need to pass a closed
+                            // loop slot, as it will default to slot 0.
+                            .p(KickerConstants.p)
+                            .i(KickerConstants.i)
+                            .d(KickerConstants.d)
+                            .outputRange(-1, 1)
+                            .feedForward
+                            .kS(KickerConstants.s)
+                            .kV(KickerConstants.v)
+                            .kA(KickerConstants.a)
+                            ;
+
+                        KickerMotorLeftConfig.closedLoop
+                        .maxMotion.maxAcceleration(1000000);
+
+
+                        KickerMotorRightConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+                            // Set PID values for position control. We don't need to pass a closed
+                            // loop slot, as it will default to slot 0.
+                            .p(KickerConstants.p)
+                            .i(KickerConstants.i)
+                            .d(KickerConstants.d)
+                            .outputRange(-1, 1)
+                            .feedForward
+                            .kS(KickerConstants.s)
+                            .kV(KickerConstants.v)
+                            .kA(KickerConstants.a)
+                            ;
+
+                        KickerMotorRightConfig.closedLoop
+                        .maxMotion.maxAcceleration(1000000);
+
+                }
+
+        };
+
+
+
 
         public static final class ShooterSubsystem {
                 
@@ -169,4 +223,5 @@ public final class Configs
         };
 
 
-}
+    }
+
