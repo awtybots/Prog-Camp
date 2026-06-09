@@ -131,6 +131,43 @@ public final class Constants {
     public static final double TURN_CONSTANT = 6;
   }
 
+  public static class KickerConstants {
+    public static final int KICKER_LEFT_ID = 13; // unknown
+    public static final int KICKER_RIGHT_ID = 14; // unknown
+
+      // PID Constants
+    public static final double p = 0.006155;
+    public static final double i = 0.000;
+    public static final double d = 0.01;
+
+    // Feed-Forward Constants
+    public static final double s = 1.25;
+    public static final double v = 0.5;
+    public static final double a = 0.75;
+
+    public static final double PUSHIT_RPM = -12500;
+    public static final double PULLIT_RPM = 12500;
+
+  }
+  public static class HopperConstants {
+    public static final int TWINDEXER_LEFT_ID = 15; // unknown
+    public static final int TWINDEXER_RIGHT_ID = 16; // unknown
+
+    // PID Constants
+    public static final double p = 0.006155;
+    public static final double i = 0.000;
+    public static final double d = 0.01;
+
+    // Feed-Forward Constants
+    public static final double s = 1.25;
+    public static final double v = 0.5;
+    public static final double a = 0.75;
+
+    public static final double PENETRATE_RPM = -12500;
+    public static final double PULLOUT_RPM = 12500;
+
+  }
+
   public static class IntakeConstants {
     public static final int INTAKE_LEFT_ID = 18; // unknown
     public static final int INTAKE_RIGHT_ID = 19; // unknown
@@ -151,6 +188,24 @@ public final class Constants {
     public static final double OUTTAKE_RPM = 12500;
 
   }
+  public static class ExtensionConstants {
+    public static final int EXTENSION_ID = 17; // unknown
+
+
+    // PID Constants
+    public static final double p = 0.006155;
+    public static final double i = 0.000;
+    public static final double d = 0.01;
+
+    // Feed-Forward Constants
+    public static final double s = 1.25;
+    public static final double v = 0.5;
+    public static final double a = 0.75;
+
+    public static final double EXTEND_POS = -12500;
+    public static final double RETRACT_POS = 12500;
+
+  }
 
   public static class ShooterConstants {
     public static final int SHOOTER_L1_ID = 9;
@@ -159,7 +214,8 @@ public final class Constants {
     public static final int SHOOTER_R1_ID = 11;
     public static final int SHOOTER_R2_ID = 12;
 
-    public static final double SHOOTER_SPEED = -1735;                  // RPM 3 meters 1900 4 meters 2200
+    public static final double EJAC_SPEED = -1735;                  // RPM 3 meters 1900 4 meters 2200
+    public static final double DRIBBLE_SPEED = -500;
     public static final double SHOOTER_PASSING_SPEED = -4000;  
     public static final double ERROR_MARGIN = 50; // RPM         
     public static final double STOP = 0;

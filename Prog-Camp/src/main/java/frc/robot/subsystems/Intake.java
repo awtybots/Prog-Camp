@@ -14,7 +14,7 @@ import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.revrobotics.spark.config.MAXMotionConfig.MAXMotionPositionMode;
+
 
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.Configs;
@@ -85,14 +85,14 @@ public class Intake extends SubsystemBase {
     public void periodic() {
         // AdvantageKit Logging
         // Commanded intake motor percent output.
-        double RightRPM = IntakeRightMotor.getEncoder().getVelocity();
-        double LeftRPM = IntakeLeftMotor.getEncoder().getVelocity();
+        double IntakeRightRPM = IntakeRightMotor.getEncoder().getVelocity();
+        double IntakeLeftRPM = IntakeLeftMotor.getEncoder().getVelocity();
 
         Logger.recordOutput("Intake/DesiredPercent", desiredPercent);
         // Applied voltage to intake motor.
         Logger.recordOutput("Intake/AppliedVolts", IntakeLeftMotor.getAppliedOutput() * IntakeLeftMotor.getBusVoltage());
-        Logger.recordOutput("IntakeRightRPM", RightRPM);
-        Logger.recordOutput("IntakeLeftRPM", LeftRPM);
+        Logger.recordOutput("IntakeRightRPM", IntakeRightRPM);
+        Logger.recordOutput("IntakeLeftRPM", IntakeLeftRPM);
         Logger.recordOutput("IntakeTargetRPM", IntakeConstants.INTAKE_RPM);
 
 
