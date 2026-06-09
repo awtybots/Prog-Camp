@@ -5,10 +5,10 @@ import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.*;
 
 import frc.robot.Constants.IntakeConstants;
-
 import frc.robot.Constants.HopperConstants;
-
 import frc.robot.Constants.ShooterConstants;
+import frc.robot.Constants.PushoutConstants;
+
 
 // import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.FeedbackSensor;
@@ -117,6 +117,35 @@ public final class Configs
 
         };
 
+
+        public static final class PushoutSubsystem {
+            
+        public static final SparkFlexConfig PushoutMotorConfig = new SparkFlexConfig();
+
+            static {
+
+                    PushoutMotorConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12);
+
+                    PushoutMotorConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+                        // Set PID values for position control. We don't need to pass a closed
+                        // loop slot, as it will default to slot 0.
+                        .p(PushoutConstants.p)
+                        .i(PushoutConstants.i)
+                        .d(PushoutConstants.d)
+                        .outputRange(-1, 1)
+                        .feedForward
+                        .kS(PushoutConstants.s)
+                        .kV(PushoutConstants.v)
+                        .kA(PushoutConstants.a)
+                        ;
+
+                    PushoutMotorConfig.closedLoop
+                    .maxMotion.maxAcceleration(1000000);
+
+
+            }
+
+    };
 
         public static final class ShooterSubsystem {
                 

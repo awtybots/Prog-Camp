@@ -175,6 +175,35 @@ public final class Constants {
 
 
 
+  public static class PushoutConstants {
+    public static final int PUSHOUT_ID = 17; // TODO: check that can id is right
+
+    // PID Constants
+    public static final double p = 0.006155;
+    public static final double i = 0.000;
+    public static final double d = 0.01;
+
+    // Feed-Forward Constants
+    public static final double s = 1.25;
+    public static final double v = 0.5;
+    public static final double a = 0.75;
+
+    public static final double PUSHOUT_EXTENDED_POSITION = 15;
+    public static final double PUSHOUT_RETRACTED_POSITION = 1;
+
+    // Agitation Constants
+    // public static final double PUSHOUT_AGITATE_POSITION_1 = 12;
+    // public static final double PUSHOUT_AGITATE_POSITION_2 = 8;
+    // public static final double PUSHOUT_AGITATE_POSITION_3 = 4;
+
+    public static final double[] PUSHOUT_PULL_POSITIONS = {11, 7, 4, 1};
+    public static final double[] PUSHOUT_PUSH_POSITIONS = {15, 11, 7, 4};
+    public static final double PUSHOUT_PULL_WAIT_TIME = 0.3;
+    public static final double PUSHOUT_PUSH_WAIT_TIME = 0.5;
+  }
+
+
+
   public static class ShooterConstants {
     public static final int SHOOTER_L1_ID = 9;
     public static final int SHOOTER_L2_ID = 10;
