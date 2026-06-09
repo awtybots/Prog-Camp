@@ -35,7 +35,7 @@ public class Hopper extends SubsystemBase {
     public Hopper() {
         HopperLeftMotor.configure(Configs.HopperSubsystem.HopperMotorLeftConfig, ResetMode.kResetSafeParameters,
                 PersistMode.kPersistParameters);
-        HopperRightMotor.configure(Configs.IntakeSubsystem.IntakeMotorRightConfig, ResetMode.kResetSafeParameters,
+        HopperRightMotor.configure(Configs.HopperSubsystem.HopperMotorRightConfig, ResetMode.kResetSafeParameters,
                 PersistMode.kPersistParameters);
         // THE RIGHT INTAKE MOTOR IS FOLLOWING THE LEFT ONE!!!
     }

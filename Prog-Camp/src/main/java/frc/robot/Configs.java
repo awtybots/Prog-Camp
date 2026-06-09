@@ -78,7 +78,6 @@ public final class Configs
                 static {
 
                         HopperMotorLeftConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12);
-                        HopperMotorRightConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12).follow(HopperConstants.HOPPER_RIGHT_ID, true);
 
 
 
@@ -178,7 +177,7 @@ public final class Configs
 
             static {
 
-                    PushoutMotorConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12);
+                    PushoutMotorConfig.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12);
 
                     PushoutMotorConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
                         // Set PID values for position control. We don't need to pass a closed
@@ -194,7 +193,9 @@ public final class Configs
                         ;
 
                     PushoutMotorConfig.closedLoop
-                    .maxMotion.maxAcceleration(1000000);
+                    .maxMotion.maxAcceleration(1000000)
+                    .allowedProfileError(0.4);
+                    
 
 
             }
@@ -213,8 +214,8 @@ public final class Configs
 
                         ShooterMotorLeftConfig1.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12);
                         ShooterMotorRightConfig1.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L1_ID,true);
-                        ShooterMotorLeftConfig2.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L1_ID,false);
-                        ShooterMotorRightConfig2.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L1_ID,true);
+                        ShooterMotorLeftConfig2.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L1_ID,true);
+                        ShooterMotorRightConfig2.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L1_ID,false);
 
 
 
