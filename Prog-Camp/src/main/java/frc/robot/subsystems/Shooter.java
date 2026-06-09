@@ -86,6 +86,16 @@ public class Shooter extends SubsystemBase {
         return stopShooterCommand();
     }
 
+    public boolean IsShooterFast() {
+        double Left1RPM = ShooterLeftMotor1.getEncoder().getVelocity();
+        // double RightRPM = ShooterRightMotor.getEncoder().getVelocity();
+        double Right1RPM = ShooterRightMotor1.getEncoder().getVelocity();
+        // double RightRPM = ShooterRightMotor.getEncoder().getVelocity();
+        double avgShooterRPM = (Left1RPM + Right1RPM) / 2.0;
+        return Math.abs (avgShooterRPM - ShooterConstants.staticRPM) <= ShooterConstants.ERROR_MARGIN;
+        // return RightRPM >= ShooterConstants.shooterFastRPM && LeftRPM >= ShooterConstants.shooterFastRPM;
+    }
+
     @Override
     public void periodic() {
         // AdvantageKit Logging
