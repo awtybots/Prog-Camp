@@ -155,8 +155,8 @@ public final class Constants {
 
   // for the Hopper :D 
   public static class HopperConstants {
-    public static final int HOPPER_LEFT_ID = 18; // unknown
-    public static final int HOPPER_RIGHT_ID = 19; // unknown
+    public static final int HOPPER_LEFT_ID = 15; // unknown
+    public static final int HOPPER_RIGHT_ID = 16; // unknown
 
     // PID Constants
     public static final double p = 0.006155;
@@ -194,9 +194,6 @@ public final class Constants {
     public static final double KICKER_REVERSE_RPM = 16000;
 
   }
-
-
-
 
 
   public static class ShooterConstants {
