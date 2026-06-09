@@ -152,11 +152,11 @@ public final class Constants {
 
   }
 
-// for the Hopper :D
 
+  // for the Hopper :D 
   public static class HopperConstants {
-    public static final int HOPPER_LEFT_ID = 18; // unknown
-    public static final int HOPPER_RIGHT_ID = 19; // unknown
+    public static final int HOPPER_LEFT_ID = 15; // unknown
+    public static final int HOPPER_RIGHT_ID = 16; // unknown
 
     // PID Constants
     public static final double p = 0.006155;
@@ -173,6 +173,27 @@ public final class Constants {
 
   }
 
+
+  // for the Kicker :P
+
+  public static class KickerConstants {
+    public static final int KICKER_LEFT_ID = 13; // unknown
+    public static final int KICKER_RIGHT_ID = 14; // unknown
+
+    // PID Constants
+    public static final double p = 0.006155;
+    public static final double i = 0.000;
+    public static final double d = 0.01;
+
+    // Feed-Forward Constants
+    public static final double s = 1.25;
+    public static final double v = 0.5;
+    public static final double a = 0.75;
+
+    public static final double KICKER_RPM = -16000;
+    public static final double KICKER_REVERSE_RPM = 16000;
+
+  }
 
 
   public static class PushoutConstants {
@@ -231,6 +252,7 @@ public final class Constants {
     public static final double v = 0.00169;
     public static final double a = 0.0;
 
+    public static final int staticRPM = 500;
 
     public final static InterpolatingDoubleTreeMap TOF = new InterpolatingDoubleTreeMap();
 
