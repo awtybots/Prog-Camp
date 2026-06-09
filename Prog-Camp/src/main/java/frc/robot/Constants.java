@@ -202,6 +202,7 @@ public final class Constants {
     public static final double v = 0.00169;
     public static final double a = 0.0;
 
+    public static final int staticRPM = 500;
 
     public final static InterpolatingDoubleTreeMap TOF = new InterpolatingDoubleTreeMap();
 
