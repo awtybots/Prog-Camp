@@ -152,6 +152,69 @@ public final class Constants {
 
   }
 
+  public static class HopperConstants {
+    public static final int HOPPER_LEFT_ID = 15; // unknown
+    public static final int HOPPER_RIGHT_ID = 16; // unknown
+
+    // PID Constants
+    public static final double p = 0.006155;
+    public static final double i = 0.000;
+    public static final double d = 0.01;
+
+    // Feed-Forward Constants
+    public static final double s = 1.25;
+    public static final double v = 0.5;
+    public static final double a = 0.75;
+
+    public static final double OUTTAKE_SPEED = -1;
+    public static final double HOPPER_SPEED = 1;
+    public static final double HOPPER_RPM = -12500;
+    public static final double OUTTAKE_RPM = 12500;
+
+  }
+
+  public static class KickerConstants {
+    public static final int KICKER_LEFT_ID = 13; // unknown
+    public static final int KICKER_RIGHT_ID = 14; // unknown
+
+    // PID Constants
+    public static final double p = 0.006155;
+    public static final double i = 0.000;
+    public static final double d = 0.01;
+
+    // Feed-Forward Constants
+    public static final double s = 1.25;
+    public static final double v = 0.5;
+    public static final double a = 0.75;
+
+    public static final double KICKER_RPM = -12500;
+    public static final double OUTTAKE_RPM = 12500;
+
+  }
+
+
+  public static class PushoutConstants {
+    public static final int PUSHOUT_LEFT_ID = 15; // unknown
+    public static final int PUSHOUT_RIGHT_ID = 16; // unknown
+
+    // PID Constants
+    public static final double p = 0.006155;
+    public static final double i = 0.000;
+    public static final double d = 0.01;
+
+    // Feed-Forward Constants
+    public static final double s = 1.25;
+    public static final double v = 0.5;
+    public static final double a = 0.75;
+
+    public static final double OUTTAKE_SPEED = -1;
+    public static final double PUSHOUT_SPEED = 1;
+    public static final double PUSHOUT_extended_position = 15.911;
+    public static final double OUTTAKE_RPM = 12500;
+    public static final double PUSHOUT_retracted_position = 0.25;
+
+  }
+
   public static class ShooterConstants {
     public static final int SHOOTER_L1_ID = 9;
     public static final int SHOOTER_L2_ID = 10;
