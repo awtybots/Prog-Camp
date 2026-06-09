@@ -200,9 +200,9 @@ public final class Constants {
     public static final int PUSHOUT_ID = 17; // TODO: check that can id is right
 
     // PID Constants
-    public static final double p = 0.006155;
+    public static final double p = 1;
     public static final double i = 0.000;
-    public static final double d = 0.01;
+    public static final double d = 0.3;
 
     // Feed-Forward Constants
     public static final double s = 1.25;
