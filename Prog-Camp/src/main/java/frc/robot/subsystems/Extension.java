@@ -46,6 +46,12 @@ public class Extension extends SubsystemBase {
                 ControlType.kMAXMotionPositionControl);
     }
 
+    public void stopExtension() {
+        desiredPercent = 0.0;
+        ExtensionMotor.set(0);
+    }
+
+    
      public Command AgitateCommand() {
         final double[] pullPositions = { 12.5, 10, 7, 5, 3 }; // each time it pushes less far in
         final double[] pushPositions = { 15, 13.5, 10, 8.5, 6 }; // each time it pulls further out
@@ -67,18 +73,12 @@ public class Extension extends SubsystemBase {
                 runOnce(() -> PushoutController.setSetpoint(finalPos, ControlType.kMAXMotionPositionControl));
                 Commands.idle(this);
 
-        ).finallyDo(interrupted -> runExtension());
+        )
+        .finallyDo(interrupted -> runExtension());
         agitate.addRequirements(this);
         return agitate;
     }
 
-    
-    
-
-    public void stopExtension() {
-        desiredPercent = 0.0;
-        ExtensionMotor.set(0);
-    }
 
     public Command runExtensionCommand() {
         return new RunCommand(() -> runExtension(), this)
