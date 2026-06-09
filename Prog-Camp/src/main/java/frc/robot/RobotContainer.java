@@ -60,7 +60,7 @@ import swervelib.SwerveInputStream;
 import org.littletonrobotics.junction.Logger;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.*;
 /**
  * This class is where the bulk of the robot should be declared. Since
  * Command-based is a "declarative" paradigm, very
@@ -82,9 +82,11 @@ public class RobotContainer {
 
   // Instantiate Subsystems
   private final Intake m_intake = new Intake();
+  private final Hopper m_hopper = new Hopper();
+  private final Kicker m_kicker = new Kicker();
+  private final Pushout m_pushout = new Pushout();    
+  private final Shooter m_shooter = new Shooter();
 
-      private Trigger X_runIntake;
-    private Trigger A_runOuttake;
 
   // Helper Subsystems
   // private final ObjectDetection m_ObjectDetection = new ObjectDetection();
@@ -320,8 +322,25 @@ public class RobotContainer {
   
 
     // intake
-    X_runIntake.whileTrue(m_intake.runIntakeCommand());
-    A_runOuttake.whileTrue(m_intake.runOuttakeCommand());
+    // driverXbox.leftTrigger().whileTrue(
+    //   Commands.parallel(
+    //   m_intake.runIntakeCommand(),
+    //   m_pushout.extendPushoutCommand()));
+
+    // driverXbox.rightTrigger().whileTrue(
+    //   Commands.onlyWhile.IsShooterFast==True(
+    
+    //   Commands.parallel(
+    //   m_intake.runIntakeCommand(),
+    //   m_pushout.extendPushoutCommand())));
+
+    driverXbox.leftTrigger().whileTrue(m_intake.runIntakeCommand());
+    driverXbox.rightTrigger().whileTrue(m_shooter.staticShootCommand());
+    driverXbox.x().whileTrue(m_hopper.runHopperCommand());
+    driverXbox.a().whileTrue(m_kicker.runHKickerCommand());
+    driverXbox.y().whileTrue(m_pushout.extendPushoutCommand());
+    driverXbox.b().whileTrue(m_pushout.retractPushoutCommand());    
+    driverXbox.leftBumper().whileTrue(m_pushout.agitateCommand()); 
 
     // ========================
 
