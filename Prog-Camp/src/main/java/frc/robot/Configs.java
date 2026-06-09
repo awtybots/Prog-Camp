@@ -78,7 +78,7 @@ public final class Configs
                 static {
 
                         HopperMotorLeftConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12);
-                        HopperMotorRightConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12).follow(HopperConstants.HOPPER_LEFT_ID, true);
+                        HopperMotorRightConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12).follow(HopperConstants.HOPPER_RIGHT_ID, true);
 
 
 
@@ -213,8 +213,8 @@ public final class Configs
 
                         ShooterMotorLeftConfig1.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12);
                         ShooterMotorRightConfig1.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L1_ID,true);
-                        ShooterMotorLeftConfig2.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L2_ID,false);
-                        ShooterMotorRightConfig2.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_R1_ID,false);
+                        ShooterMotorLeftConfig2.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L1_ID,false);
+                        ShooterMotorRightConfig2.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12).follow(ShooterConstants.SHOOTER_L1_ID,true);
 
 
 
