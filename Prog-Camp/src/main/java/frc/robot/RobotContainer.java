@@ -60,7 +60,8 @@ import swervelib.SwerveInputStream;
 import org.littletonrobotics.junction.Logger;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
-import frc.robot.subsystems.Intake;
+
+import frc.robot.subsystems.*;
 /**
  * This class is where the bulk of the robot should be declared. Since
  * Command-based is a "declarative" paradigm, very
@@ -82,9 +83,12 @@ public class RobotContainer {
 
   // Instantiate Subsystems
   private final Intake m_intake = new Intake();
+  private final Hopper m_hopper = new Hopper();
+  private final Kicker m_kicker = new Kicker();
+  private final Extension m_extension = new Extension();
+  private final Shooter m_shooter = new Shooter();
 
-      private Trigger X_runIntake;
-    private Trigger A_runOuttake;
+ 
 
   // Helper Subsystems
   // private final ObjectDetection m_ObjectDetection = new ObjectDetection();
@@ -139,6 +143,8 @@ public class RobotContainer {
   // ========= DRIVER TRIGGERS ===========
   // Parallel Commands
 
+
+  
   // -----------------------------------------------------------------------
   // Helpers: resolve which physical controller acts as "driver" vs "operator"
   // based on the SmartDashboard chooser selection.  
