@@ -193,9 +193,9 @@ public final class Configs
                         ;
 
                     PushoutMotorConfig.closedLoop
-                    .maxMotion.maxAcceleration(1000000)
-                    .allowedProfileError(0.4);
-                    
+                    .maxMotion.maxAcceleration(10000)
+                                .cruiseVelocity(1000)
+                                .allowedProfileError(0.4);
 
 
             }
