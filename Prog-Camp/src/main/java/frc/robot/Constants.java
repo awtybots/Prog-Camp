@@ -151,7 +151,7 @@ public final class Constants {
     public static final double OUTTAKE_RPM = 12500;
 
   }
-
+  
 
   // for the Hopper :D 
   public static class HopperConstants {
@@ -233,8 +233,8 @@ public final class Constants {
     public static final int SHOOTER_R1_ID = 11;
     public static final int SHOOTER_R2_ID = 12;
 
-    public static final double SHOOTER_SPEED = 1850;                  // RPM 3 meters 1900 4 meters 2200, 6/8 was -1735
-    public static final double SHOOTER_PASSING_SPEED = 4000;      // was negative
+    public static final double SHOOTER_SPEED = -1850;                  // RPM 3 meters 1900 4 meters 2200, 6/8 was -1735
+    public static final double SHOOTER_PASSING_SPEED = -4000;      // was negative
     public static final double ERROR_MARGIN = 50; // RPM         
     public static final double STOP = 0;
     public static final double IDLE = 0.1; // % voltage -1 --> 1
@@ -253,7 +253,7 @@ public final class Constants {
     public static final double v = 0.00169;
     public static final double a = 0.0;
 
-    public static final int staticRPM = 500;
+    public static final int staticRPM = -1500;
 
     public final static InterpolatingDoubleTreeMap TOF = new InterpolatingDoubleTreeMap();
 

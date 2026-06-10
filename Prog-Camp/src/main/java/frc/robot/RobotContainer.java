@@ -341,8 +341,7 @@ public class RobotContainer {
     // //retract
     // driverXbox.leftTrigger().whileTrue(
     //   Commands.parallel(
-    //   m_intake.runIntakeCommand().onlyWhile(null),
-    //   m_pushout.extendPushoutCommand()));
+    //   m_pushout.retractPushoutCommand().onlyWhile(null)));
 
 
     //.onlyWhile(IsShooterFast)
