@@ -61,11 +61,6 @@ public class Shooter extends SubsystemBase {
         ShooterLeft1Motor.set(0);
     }
 
-    public Command runRPMCommand() {
-        return new RunCommand(() -> runRPM(), this)
-                .finallyDo(interrupted -> stopShooter());
-    }
-
     public Command runShooterCommand() {
         return new RunCommand(() -> runShooter(), this)
                 .finallyDo(interrupted -> stopShooter());
