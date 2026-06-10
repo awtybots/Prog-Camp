@@ -328,14 +328,16 @@ public class RobotContainer {
       m_pushout.extendPushoutCommand()));
 
     //shooter commands
-    driverXbox.rightBumper().whileTrue(
+    driverXbox.rightTrigger().whileTrue(
       Commands.sequence(
         m_shooter.staticShootCommand().until(() -> m_shooter.IsShooterFast()),
         Commands.parallel(
           m_kicker.runHKickerCommand(),
           m_shooter.staticShootCommand(),
           m_hopper.runHopperCommand()),
-          m_pushout.retractPushoutCommand()  
+          m_pushout.retractPushoutCommand(),
+          m_pushout.agitateCommand(),
+          m_intake.runIntakeCommand()  
       ));
 
     // //retract
