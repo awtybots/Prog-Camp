@@ -345,13 +345,13 @@ public class RobotContainer {
 
 
     //.onlyWhile(IsShooterFast)
-    // driverXbox.leftTrigger().whileTrue(m_intake.runIntakeCommand());
-    driverXbox.rightTrigger().whileTrue(m_shooter.staticShootCommand());
-    driverXbox.x().whileTrue(m_hopper.runHopperCommand());
-    // driverXbox.a().whileTrue(m_kicker.runHKickerCommand());
-    driverXbox.y().whileTrue(m_pushout.extendPushoutCommand());
-    driverXbox.b().whileTrue(m_pushout.retractPushoutCommand());    
-    driverXbox.leftBumper().whileTrue(m_pushout.agitateCommand()); 
+    // // driverXbox.leftTrigger().whileTrue(m_intake.runIntakeCommand());
+    // driverXbox.rightTrigger().whileTrue(m_shooter.staticShootCommand());
+    // driverXbox.x().whileTrue(m_hopper.runHopperCommand());
+    // // driverXbox.a().whileTrue(m_kicker.runHKickerCommand());
+    // driverXbox.y().whileTrue(m_pushout.extendPushoutCommand());
+    // driverXbox.b().whileTrue(m_pushout.retractPushoutCommand());    
+    // driverXbox.leftBumper().whileTrue(m_pushout.agitateCommand()); 
 
     // ========================
 
