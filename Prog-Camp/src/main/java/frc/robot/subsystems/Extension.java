@@ -59,7 +59,8 @@ public class Extension extends SubsystemBase {
         final double waitTime = ExtensionConstants.PUSHOUT_AGITATE_WAIT;
         final double waitBetween = ExtensionConstants.PUSHOUT_BETWEEN;
         Command agitate = Commands.sequence(
-                // push to 11 & pull to 8
+            Commands.run(() ->
+                {// push to 11 & pull to 8
                 for (int i = 0; i < 5; i++) {
                 runOnce(() -> ExtensionController.setSetpoint(pullPositions[i], ControlType.kMAXMotionPositionControl));
                 Commands.waitSeconds(waitTime);
@@ -70,8 +71,8 @@ public class Extension extends SubsystemBase {
                 }
 
                 // end pos
-                runOnce(() -> PushoutController.setSetpoint(finalPos, ControlType.kMAXMotionPositionControl));
-                Commands.idle(this);
+                runOnce(() -> ExtensionController.setSetpoint(finalPos, ControlType.kMAXMotionPositionControl));
+                Commands.idle(this);})
 
         )
         .finallyDo(interrupted -> runExtension());

@@ -205,6 +205,9 @@ public final class Constants {
     public static final double EXTEND_POS = -12500;
     public static final double RETRACT_POS = 12500;
 
+    public static final double PUSHOUT_BETWEEN = 0.1;
+    public static final double PUSHOUT_AGITATE_WAIT = 0.1;
+
   }
 
   public static class ShooterConstants {
