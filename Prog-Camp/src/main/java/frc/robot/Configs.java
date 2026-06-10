@@ -187,12 +187,12 @@ public final class Configs
                         .p(PushoutConstants.p)
                         .i(PushoutConstants.i)
                         .d(PushoutConstants.d)
-                        .outputRange(-1, 1)
-                        .feedForward
-                        .kS(PushoutConstants.s)
-                        .kV(PushoutConstants.v)
-                        .kA(PushoutConstants.a)
-                        ;
+                        .outputRange(-1, 1);
+                        // .feedForward
+                        // .kS(PushoutConstants.s)
+                        // .kV(PushoutConstants.v)
+                        // .kA(PushoutConstants.a)
+                        // ;
 
                     PushoutMotorConfig.closedLoop
                     .maxMotion.maxAcceleration(10000)
