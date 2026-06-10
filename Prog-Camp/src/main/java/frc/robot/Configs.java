@@ -12,6 +12,8 @@ import frc.robot.Constants.PushoutConstants;
 
 import frc.robot.Constants.KickerConstants;
 
+import javax.swing.plaf.TreeUI;
+
 // import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.FeedbackSensor;
 
@@ -78,7 +80,7 @@ public final class Configs
                 static {
 
                         HopperMotorLeftConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12);
-
+                        HopperMotorRightConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12).follow(HopperConstants.HOPPER_LEFT_ID,true);
 
 
                         HopperMotorLeftConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
