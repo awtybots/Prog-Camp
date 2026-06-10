@@ -210,7 +210,7 @@ public final class Constants {
     public static final double v = 0.5;
     public static final double a = 0.75;
 
-    public static final double PUSHOUT_EXTENDED_POSITION = 15;
+    public static final double PUSHOUT_EXTENDED_POSITION = 14;
     public static final double PUSHOUT_RETRACTED_POSITION = 1;
 
     // Agitation Constants
