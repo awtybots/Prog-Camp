@@ -324,7 +324,7 @@ public class RobotContainer {
     //intake and pushout
     driverXbox.leftTrigger().whileTrue(
       Commands.parallel(
-      m_intake.runIntakeCommand().onlyWhile(null),
+      m_intake.runIntakeCommand(),
       m_pushout.extendPushoutCommand()));
 
     //shooter commands
