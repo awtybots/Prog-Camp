@@ -333,9 +333,10 @@ public class RobotContainer {
     dc().rightTrigger().whileTrue(Commands.parallel(
       m_hopper.runTwindexerCommand(),
       m_kicker.runKickerCommand(),
-      m_shooter.runShooterCommand()
+      m_shooter.runShooterCommand(),
+      m_intake.runIntakeCommand()
     ));
-    }
+    
 
     // ========================
 

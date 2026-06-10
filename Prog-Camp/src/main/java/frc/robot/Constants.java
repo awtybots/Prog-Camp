@@ -195,7 +195,7 @@ public final class Constants {
     // PID Constants
     public static final double p = 0.006155;
     public static final double i = 0.000;
-    public static final double d = 0.01;
+    public static final double d = 0.001;
 
     // Feed-Forward Constants
     public static final double s = 1.25;
