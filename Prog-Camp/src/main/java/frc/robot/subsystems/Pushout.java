@@ -68,12 +68,12 @@ public class Pushout extends SubsystemBase {
     }
 
     public Command extendPushoutCommand() {
-        return runOnce(() -> extendPushout());
+        return this.runOnce(() -> extendPushout());
                 // .finallyDo(interrupted -> stopPushout());
     }
 
     public Command retractPushoutCommand() {
-        return runOnce(() -> retractPushout());
+        return this.runOnce(() -> retractPushout());
                 // .finallyDo(interrupted -> stopPushout());
     }
 
@@ -90,18 +90,18 @@ public class Pushout extends SubsystemBase {
         return stopPushoutCommand();
     }
 
-    @Override
-    public void periodic() {
-        // AdvantageKit Logging
-        // Commanded Pushout motor percent output.
-        double RightRPM = PushoutMotor.getEncoder().getVelocity();
+    // @Override
+    // public void periodic() {
+    //     // AdvantageKit Logging
+    //     // Commanded Pushout motor percent output.
+    //     double RightRPM = PushoutMotor.getEncoder().getVelocity();
 
-        Logger.recordOutput("Pushout/DesiredPercent", desiredPercent);
-        // Applied voltage to Pushout motor.
-        Logger.recordOutput("Pushout/AppliedVolts", PushoutMotor.getAppliedOutput() * PushoutMotor.getBusVoltage());
-        Logger.recordOutput("PushoutRPM", RightRPM);
-        // Logger.recordOutput("PushoutTargetPosition", PushoutConstants.PUSHOUT);
+    //     // Logger.recordOutput("Pushout/DesiredPercent", desiredPercent);
+    //     // Applied voltage to Pushout motor.
+    //     // Logger.recordOutput("Pushout/AppliedVolts", PushoutMotor.getAppliedOutput() * PushoutMotor.getBusVoltage());
+    //     // Logger.recordOutput("PushoutRPM", RightRPM);
+    //     // Logger.recordOutput("PushoutTargetPosition", PushoutConstants.PUSHOUT);
 
 
-    }
+    // }
 }
