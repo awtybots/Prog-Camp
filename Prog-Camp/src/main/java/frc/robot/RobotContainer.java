@@ -334,7 +334,8 @@ public class RobotContainer {
       m_hopper.runTwindexerCommand(),
       m_kicker.runKickerCommand(),
       m_shooter.runShooterCommand(),
-      m_intake.runIntakeCommand()
+      m_intake.runIntakeCommand(),
+      m_extension.runAgitateCommand()
     ));
     
 

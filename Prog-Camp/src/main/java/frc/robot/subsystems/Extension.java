@@ -52,7 +52,7 @@ public class Extension extends SubsystemBase {
     }
 
     
-     public Command AgitateCommand() {
+     public Command runAgitateCommand() {
         final double[] pullPositions = { 12.5, 10, 7, 5, 3 }; // each time it pushes less far in
         final double[] pushPositions = { 15, 13.5, 10, 8.5, 6 }; // each time it pulls further out
         final double finalPos = 4; // pull to this position and idle there after agitation done
