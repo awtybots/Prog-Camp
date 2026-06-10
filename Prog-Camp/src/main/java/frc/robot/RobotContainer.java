@@ -321,23 +321,35 @@ public class RobotContainer {
     // ======= Driver =======
   
 
-    // intake
+    //intake and pushout
+    driverXbox.leftTrigger().whileTrue(
+      Commands.parallel(
+      m_intake.runIntakeCommand().onlyWhile(null),
+      m_pushout.extendPushoutCommand()));
+
+    //shooter commands
+    driverXbox.rightBumper().whileTrue(
+      Commands.sequence(
+        m_shooter.staticShootCommand().until(() -> m_shooter.IsShooterFast()),
+        Commands.parallel(
+          m_kicker.runHKickerCommand(),
+          m_shooter.staticShootCommand(),
+          m_hopper.runHopperCommand()),
+          m_pushout.agitateCommand()  
+      ));
+
+    // //retract
     // driverXbox.leftTrigger().whileTrue(
     //   Commands.parallel(
-    //   m_intake.runIntakeCommand(),
+    //   m_intake.runIntakeCommand().onlyWhile(null),
     //   m_pushout.extendPushoutCommand()));
 
-    // driverXbox.rightTrigger().whileTrue(
-    //   Commands.onlyWhile.IsShooterFast==True(
-    
-    //   Commands.parallel(
-    //   m_intake.runIntakeCommand(),
-    //   m_pushout.extendPushoutCommand())));
 
-    driverXbox.leftTrigger().whileTrue(m_intake.runIntakeCommand());
+    //.onlyWhile(IsShooterFast)
+    // driverXbox.leftTrigger().whileTrue(m_intake.runIntakeCommand());
     driverXbox.rightTrigger().whileTrue(m_shooter.staticShootCommand());
     driverXbox.x().whileTrue(m_hopper.runHopperCommand());
-    driverXbox.a().whileTrue(m_kicker.runHKickerCommand());
+    // driverXbox.a().whileTrue(m_kicker.runHKickerCommand());
     driverXbox.y().whileTrue(m_pushout.extendPushoutCommand());
     driverXbox.b().whileTrue(m_pushout.retractPushoutCommand());    
     driverXbox.leftBumper().whileTrue(m_pushout.agitateCommand()); 
