@@ -324,10 +324,18 @@ public class RobotContainer {
 
     // ======= Driver =======
   
-
     // intake
-    X_runIntake.whileTrue(m_intake.runIntakeCommand());
-    A_runOuttake.whileTrue(m_intake.runOuttakeCommand());
+    dc().leftTrigger().whileTrue(Commands.parallel(
+      m_intake.runIntakeCommand(),
+      m_extension.runExtensionCommand()
+    ));
+
+    dc().rightTrigger().whileTrue(Commands.parallel(
+      m_hopper.runTwindexerCommand(),
+      m_kicker.runKickerCommand(),
+      m_shooter.runShooterCommand()
+    ));
+    }
 
     // ========================
 
