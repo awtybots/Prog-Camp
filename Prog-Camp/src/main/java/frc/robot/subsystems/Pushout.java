@@ -68,13 +68,13 @@ public class Pushout extends SubsystemBase {
     }
 
     public Command extendPushoutCommand() {
-        return new RunCommand(() -> extendPushout(), this)
-                .finallyDo(interrupted -> stopPushout());
+        return runOnce(() -> extendPushout());
+                // .finallyDo(interrupted -> stopPushout());
     }
 
     public Command retractPushoutCommand() {
-        return new RunCommand(() -> retractPushout(), this)
-                .finallyDo(interrupted -> stopPushout());
+        return runOnce(() -> retractPushout());
+                // .finallyDo(interrupted -> stopPushout());
     }
 
     public Command stopPushoutCommand() {

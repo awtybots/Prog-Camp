@@ -178,7 +178,7 @@ public final class Configs
 
             static {
 
-                    PushoutMotorConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).voltageCompensation(12);
+                    PushoutMotorConfig.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12);
 
                     PushoutMotorConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
                         // Set PID values for position control. We don't need to pass a closed
@@ -194,7 +194,9 @@ public final class Configs
                         ;
 
                     PushoutMotorConfig.closedLoop
-                    .maxMotion.maxAcceleration(1000000);
+                    .maxMotion.maxAcceleration(10000)
+                                .cruiseVelocity(1000)
+                                .allowedProfileError(0.4);
 
 
             }
