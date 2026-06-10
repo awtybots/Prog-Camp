@@ -62,9 +62,10 @@ public class Extension extends SubsystemBase {
             Commands.run(() ->
                 {// push to 11 & pull to 8
                 for (int i = 0; i < 5; i++) {
-                runOnce(() -> ExtensionController.setSetpoint(pullPositions[i], ControlType.kMAXMotionPositionControl));
+                    final int idx = i;
+                runOnce(() -> ExtensionController.setSetpoint(pullPositions[idx], ControlType.kMAXMotionPositionControl));
                 Commands.waitSeconds(waitTime);
-                runOnce(() -> ExtensionController.setSetpoint(pushPositions[i], ControlType.kMAXMotionPositionControl));
+                runOnce(() -> ExtensionController.setSetpoint(pushPositions[idx], ControlType.kMAXMotionPositionControl));
                 Commands.waitSeconds(waitTime);
 
                 Commands.waitSeconds(waitBetween);
