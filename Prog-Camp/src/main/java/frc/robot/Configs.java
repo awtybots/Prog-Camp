@@ -5,6 +5,7 @@ import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.*;
 
 import frc.robot.Constants.IntakeConstants;
+import frc.robot.Constants.ExtensionConstants;
 import frc.robot.Constants.HopperConstants;
 import frc.robot.Constants.KickerConstants;
 import frc.robot.Constants.ShooterConstants;
@@ -161,6 +162,7 @@ public final class Configs
                 }
 
         };
+
         public static final class ShooterSubsystem {
                 
             public static final SparkFlexConfig ShooterMotorLeft1Config = new SparkFlexConfig();
@@ -241,6 +243,36 @@ public final class Configs
 
                         ShooterMotorRight2Config.closedLoop
                         .maxMotion.maxAcceleration(1000000);
+
+                }
+
+        };
+
+        public static final class ExtensionSubsystem {
+                
+            public static final SparkFlexConfig ExtensionMotorConfig = new SparkFlexConfig();
+
+
+                static {
+
+                        ExtensionMotorConfig.idleMode(IdleMode.kCoast).smartCurrentLimit(40).voltageCompensation(12);
+                        ExtensionMotorConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+                            // Set PID values for position control. We don't need to pass a closed
+                            // loop slot, as it will default to slot 0.
+                            .p(ExtensionConstants.p)
+                            .i(ExtensionConstants.i)
+                            .d(ExtensionConstants.d)
+                            .outputRange(-1, 1)
+                            .feedForward
+                            .kS(ExtensionConstants.s)
+                            .kV(ExtensionConstants.v)
+                            .kA(ExtensionConstants.a)
+                            ;
+
+                        ExtensionMotorConfig.closedLoop
+                        .maxMotion.maxAcceleration(1000000);
+
+
 
                 }
 
