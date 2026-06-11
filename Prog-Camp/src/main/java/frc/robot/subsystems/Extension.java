@@ -83,8 +83,7 @@ public class Extension extends SubsystemBase {
 
 
     public Command runExtensionCommand() {
-        return new RunCommand(() -> runExtension(), this)
-                .finallyDo(interrupted -> stopExtension());
+        return  runOnce(() -> runExtension());
     }
 
     public Command runExtensionReverseCommand() {

@@ -145,8 +145,8 @@ public final class Constants {
     public static final double v = 0.5;
     public static final double a = 0.75;
 
-    public static final double PUSHIT_RPM = -12500;
-    public static final double PULLIT_RPM = 12500;
+    public static final double PUSHIT_RPM = 12500;
+    public static final double PULLIT_RPM = -12500;
 
   }
   public static class HopperConstants {
@@ -193,17 +193,13 @@ public final class Constants {
 
 
     // PID Constants
-    public static final double p = 0.006155;
+    public static final double p = 3.3;
     public static final double i = 0.000;
-    public static final double d = 0.001;
+    public static final double d = 0.01;
 
-    // Feed-Forward Constants
-    public static final double s = 1.25;
-    public static final double v = 0.5;
-    public static final double a = 0.75;
 
-    public static final double EXTEND_POS = -12500;
-    public static final double RETRACT_POS = 12500;
+    public static final double EXTEND_POS = 15;
+    public static final double RETRACT_POS = 1;
 
     public static final double PUSHOUT_BETWEEN = 0.1;
     public static final double PUSHOUT_AGITATE_WAIT = 0.1;

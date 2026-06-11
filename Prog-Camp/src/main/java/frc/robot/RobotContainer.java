@@ -334,9 +334,23 @@ public class RobotContainer {
       m_hopper.runTwindexerCommand(),
       m_kicker.runKickerCommand(),
       m_shooter.runShooterCommand(),
-      m_intake.runIntakeCommand(),
-      m_extension.runAgitateCommand()
+      m_intake.runIntakeCommand()
     ));
+
+    dc().rightBumper().whileTrue(Commands.parallel(
+      m_hopper.runTwindexerCommand(),
+      m_kicker.runKickerCommand()
+    ));
+
+    dc().leftBumper().whileTrue(Commands.parallel(
+      m_hopper.runTwindexerReverseCommand(),
+      m_kicker.runKickerReverseCommand()
+    ));
+    dc().a().whileTrue(Commands.parallel(
+      m_extension.runExtensionReverseCommand(),
+      m_intake.runIntakeCommand()
+    ));
+    
     
 
     // ========================

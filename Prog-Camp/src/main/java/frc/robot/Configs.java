@@ -262,15 +262,12 @@ public final class Configs
                             .p(ExtensionConstants.p)
                             .i(ExtensionConstants.i)
                             .d(ExtensionConstants.d)
-                            .outputRange(-1, 1)
-                            .feedForward
-                            .kS(ExtensionConstants.s)
-                            .kV(ExtensionConstants.v)
-                            .kA(ExtensionConstants.a)
-                            ;
+                            .outputRange(-1, 1);
 
                         ExtensionMotorConfig.closedLoop
-                        .maxMotion.maxAcceleration(1000000);
+                        .maxMotion.maxAcceleration(1000000)
+                        .cruiseVelocity(1000)
+                        .allowedProfileError(0.4);
 
 
 
