@@ -180,10 +180,20 @@ public class RobotContainer {
     // Tunable gain: radians of bias -> radians/sec of angular velocity
     SmartDashboard.putNumber("Heading Bias Gain", 0);
 
-    // shooter
-    
+    // auton named commands
     NamedCommands.registerCommand("intake", m_intake.runIntakeCommand());
-    NamedCommands.registerCommand("outtake", m_intake.runOuttakeCommand().withTimeout(4));
+    NamedCommands.registerCommand("extend", m_pushout.extendPushoutCommand());
+    NamedCommands.registerCommand("shoot", Commands.sequence(
+        m_shooter.staticShootCommand().until(() -> m_shooter.IsShooterFast()),
+        Commands.parallel(
+          m_kicker.runHKickerCommand(),
+          m_shooter.staticShootCommand(),
+          m_hopper.runHopperCommand()),
+          m_pushout.retractPushoutCommand(),
+          m_pushout.agitateCommand(),
+          m_intake.runIntakeCommand()));
+    
+    // NamedCommands.registerCommand("outtake", m_intake.runOuttakeCommand().withTimeout(4));
 
     // setup the flip chooser
     flipChooser.setDefaultOption("Not Flipped", false);
