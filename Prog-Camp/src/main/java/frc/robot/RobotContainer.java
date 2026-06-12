@@ -187,8 +187,15 @@ public class RobotContainer {
     // shooter
     
     NamedCommands.registerCommand("intake", m_intake.runIntakeCommand());
-    NamedCommands.registerCommand("outtake", m_intake.runOuttakeCommand().withTimeout(4));
+    NamedCommands.registerCommand("extend intake", m_extension.runExtensionCommand());
+    NamedCommands.registerCommand("shoot", m_shooter.runShooterCommand());
 
+    //intake
+    NamedCommands.registerCommand(:)
+    dc().leftTrigger().whileTrue(Commands.parallel(
+      m_intake.runIntakeCommand(),
+      m_extension.runExtensionCommand()
+    ));
     // setup the flip chooser
     flipChooser.setDefaultOption("Not Flipped", false);
     flipChooser.addOption("Flipped", true);
@@ -324,11 +331,7 @@ public class RobotContainer {
 
     // ======= Driver =======
   
-    // intake
-    dc().leftTrigger().whileTrue(Commands.parallel(
-      m_intake.runIntakeCommand(),
-      m_extension.runExtensionCommand()
-    ));
+
 
     dc().rightTrigger().whileTrue(Commands.parallel(
       m_hopper.runTwindexerCommand(),
